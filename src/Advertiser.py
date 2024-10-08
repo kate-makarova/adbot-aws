@@ -102,7 +102,7 @@ class Advertiser:
                  message='Loading known data')
 
         data = []
-        with open('forums_old.csv') as f:
+        with open('./src/forums.csv') as f:
             reader = csv.reader(f, delimiter=',', quotechar='"')
             for row in reader:
                 data.append({
