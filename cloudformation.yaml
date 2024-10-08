@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Complete infrastructure for Adbot
+
+Resources:
+  AdvertisementTaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      RequiresCompatibilities:
+        - "FARGATE"
+      ExecutionRoleArn: "arn:aws:iam::<replace with account ID>:role/ecsTaskExecutionRole"
+      Cpu: 1
+      Memory: 3000
+      NetworkMode: "awsvpc"
+      ContainerDefinitions:
+        - Name: "adbot"
+          Image: "<replace with account ID>.dkr.ecr.eu-west-3.amazonaws.com/mydeveloperplanet/myawsplanet:latest"
+          MemoryReservation: 2000
+          Memory: 3000
