@@ -4,3 +4,4 @@ beautifulsoup4
 asgiref
 numpy
 tensorflow
+boto3
