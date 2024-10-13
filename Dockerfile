@@ -28,6 +28,7 @@ RUN pip install requests
 RUN pip install beautifulsoup4
 RUN pip install asgiref
 RUN pip install tensorflow
+RUN pip install boto3
 
 WORKDIR /home/root
 ADD src src
