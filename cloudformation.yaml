@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: Complete infrastructure for Adbot
 
 Resources:
-  AdvertisementTaskDefinition:
+  AdvertisementBaseTaskDefinition:
     Type: AWS::ECS::TaskDefinition
     Properties:
       RequiresCompatibilities:
