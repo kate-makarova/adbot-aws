@@ -140,28 +140,6 @@ class Advertiser:
             )
             data += map(self.toInt, response['Items'])
 
-        # with open('./src/settings/forums.csv') as f:
-        #     reader = csv.reader(f, delimiter=',', quotechar='"')
-        #     for row in reader:
-        #         data.append({
-        #             "id": row[0],
-        #             "domain": row[1],
-        #             "custom_login": row[2],
-        #             "stop": row[3],
-        #             "verified_forum_id": row[4],
-        #             "activity": row[5],
-        #             "inactive_days": row[6],
-        #             "board_id": row[7],
-        #             "board_found": row[8]
-        #
-        #         })
-        #
-        # data = sorted(data, key=itemgetter('activity'), reverse=True)
-
-        # with open('./src/settings/forums.json') as f:
-        #     forums = json.load(f)
-
-
         for forum in data:
             if forum['id'] != home_forum_id:
                 self.links.append([forum['domain'], forum['forum_id'], 'old', forum['board_id']])
@@ -662,12 +640,12 @@ class Advertiser:
                     current_time = time.time()
                     if current_time - time_step_start < self.step_min_delay:
                         time.sleep(self.step_min_delay - (current_time - time_step_start))
-                 #   self.post(self.driver1, code_partner)
+                    self.post(self.driver1, code_partner)
                     self_form = self.check_answer_form(self.driver1)
                     cur_link = self.find_current_link(self.driver1)
 
                     full_code_home = chosen_code + '\n' + '[url=' + cur_link + ']Ваша реклама[/url]'
-                 #   self.post(self.driver2, full_code_home)
+                    self.post(self.driver2, full_code_home)
                     success += 1
                     self.log(total=str(total), success=str(success), skipped=str(skipped), visited=str(visited),
                              message="Success: " + link)
